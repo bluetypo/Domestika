@@ -1,62 +1,62 @@
-/* The GridBot
+/* The GridBot 3
 by Manolo G
 */
 
+color[] colores  = {#ED6D6A, #E94545, #CF2A30, #B6181F, #A01814, #7E170F};
 
 import processing.pdf.*;
+
 int RandV;
 int RandH;
-int lineV;
-int lineH;
-int grid = 120;//tamaño de la retícula
-
+int rectWidth;
+int rectHeight;
+int grid =180; // tamaño de la retícula
 
 void setup() {
   size(600, 900);
-  
-     dibuja();
-     
+
+  dibuja();
 }
 
 
-//función dibuja
-void dibuja(){
+
+void draw() {
+}
+
+
+// función dibuja
+void dibuja() {
   beginRecord(PDF, "gridbot/gridBot-####.pdf");
   background(#ffffff);
-  rect(0, 0, width-1, height-1);
-  noFill();
+  rect(0, 0, width - 1, height - 1);
   pushMatrix();
   translate(-grid, -grid);
-  for(int i = 0; i < 50; i++){  
-RandV = (int) random(12)*grid;
-RandH = (int) random(12)*grid;
-
-lineV = (int) random(12)*grid;
-lineH = (int) random(12)*grid;
-
-    rect(RandV, RandH, RandV, RandH);
-     noFill();
-    //line(lineV*4, lineH, lineV, lineV*4);
-    //stroke(126);
-    println(RandV);
+  for (int i = 0; i < 50; i++) {
+    RandV = (int) random(12) * grid;
+    RandH = (int) random(12) * grid;
     
+    // Asegurar que los rectángulos estén dentro del tamaño del sketch
+    rectWidth = constrain((int) random(12) * grid, 0, width - RandV);
+    rectHeight = constrain((int) random(12) * grid, 0, height - RandH);
+    noStroke();
+    fill(colores[(int)random(colores.length)]);
+    rect(RandV, RandH, rectWidth, rectHeight);
+    
+    println(RandV);
   }
-     endRecord();
+  endRecord();
 }
 
 // función exporta
-void exporta(){
-//saveFrame("gidbot/gridBot-######.tif");
-
+void exporta() {
+  // saveFrame("gridbot/gridBot-######.tif");
 }
 
 void mousePressed() {
   clear();
   dibuja();
-  exporta();
 }
 
-      
-void draw() {
- 
+void keyPressed() {
+  exporta();
 }
