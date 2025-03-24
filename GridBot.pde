@@ -1,5 +1,5 @@
 /* The GridBot 3
-by Manolo G
+bluetypo 2025
 */
 
 color[] colores  = {#ED6D6A, #E94545, #CF2A30, #B6181F, #A01814, #7E170F};
@@ -10,7 +10,8 @@ int RandV;
 int RandH;
 int rectWidth;
 int rectHeight;
-int grid =180; // tamaño de la retícula
+int cols=3; //define el numero de columnas
+
 
 void setup() {
   size(600, 900);
@@ -26,6 +27,7 @@ void draw() {
 
 // función dibuja
 void dibuja() {
+  int grid =width/cols;
   beginRecord(PDF, "gridbot/gridBot-####.pdf");
   background(#ffffff);
   rect(0, 0, width - 1, height - 1);
@@ -34,12 +36,10 @@ void dibuja() {
   for (int i = 0; i < 50; i++) {
     RandV = (int) random(12) * grid;
     RandH = (int) random(12) * grid;
-    
-    // Asegurar que los rectángulos estén dentro del tamaño del sketch
     rectWidth = constrain((int) random(12) * grid, 0, width - RandV);
     rectHeight = constrain((int) random(12) * grid, 0, height - RandH);
-    noStroke();
-    fill(colores[(int)random(colores.length)]);
+    //noStroke();
+    //fill(colores[(int)random(colores.length)]);
     rect(RandV, RandH, rectWidth, rectHeight);
     
     println(RandV);
