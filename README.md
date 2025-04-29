@@ -1,5 +1,5 @@
 # GridBot
-GridBot es un sencillo código realizado por Manuel Guerrero, este código se ejecuta en processign. Su finalidad es generar retículas en base a la decomposición geomética de un retángulo, puede ser de utilidad para el diseño de carteles, diseño editorial y diseño de interfaces gráficas.
+GridBot es un sencillo código realizado por Manuel Guerrero, este código se ejecuta en processign. Su finalidad es generar retículas en base a la descomposición geomética de un retángulo, puede ser de utilidad para el diseño de carteles, diseño editorial y diseño de interfaces gráficas.
 
 
 
